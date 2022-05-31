@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Squid : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int _health;
+
+    private int _score;
+    private Vector3 _startPosition;
+
+    private void Start()
     {
-        
+        _startPosition = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage()
     {
-        
+        _health -= 1;
+        transform.position = _startPosition;
+
+        //if (_health = 0)
+        //{
+        //    Dead()
+        //}
     }
 }

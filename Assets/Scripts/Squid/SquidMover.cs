@@ -34,9 +34,9 @@ public class SquidMover : MonoBehaviour
             }
         }
 
+
         transform.Translate(_currentVector * _currentSpeed * Time.deltaTime, Space.World);
         _currentSpeed -= _slowdown;
-        Debug.Log(_currentSpeed);
         if (_currentSpeed <= 0)
             _currentSpeed = 0;
     }
