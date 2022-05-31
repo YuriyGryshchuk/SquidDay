@@ -2,22 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fish : Enemy
+public class Headgehog : Enemy
 {
-    [SerializeField] private float _speedToRotate = 5f;
     [SerializeField] private GameObject _target;
 
     private Vector3 _directionToTarget;
 
     private void Update()
     {
-        RotateToTarget();
         MoveToTarget();
-    }
-
-    private void RotateToTarget()
-    {
-        
     }
 
     private void MoveToTarget()
