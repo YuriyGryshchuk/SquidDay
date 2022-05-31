@@ -11,7 +11,7 @@ public class Star : Enemy
     private Vector3 _velocity;
     private Rigidbody2D _rigidbody2D;
 
-    private void Start()
+    private void OnEnable()
     {
         _velocity = transform.up;
         _rigidbody2D = GetComponent<Rigidbody2D>();
