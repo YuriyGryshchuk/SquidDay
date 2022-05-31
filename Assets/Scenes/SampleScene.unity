@@ -280,7 +280,7 @@ Animation:
   m_GameObject: {fileID: 74436372}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 8f24f3cdc78ff06468268b8f56dacc01, type: 2}
+  m_Animation: {fileID: 7400000, guid: 0d1672c41084dca40853e7f48342086f, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 8f24f3cdc78ff06468268b8f56dacc01, type: 2}
   m_WrapMode: 0
