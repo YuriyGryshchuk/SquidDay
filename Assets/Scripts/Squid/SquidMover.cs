@@ -7,6 +7,7 @@ public class SquidMover : MonoBehaviour
     [SerializeField] private float _pushForce = 3f;
     [SerializeField] private float _slowdown = 0.1f;
     [SerializeField] private float _timeToMove = 1f;
+    [SerializeField] private GameObject _ink;
 
     private Vector2 _currentVector;
     private float _currentSpeed;
@@ -30,10 +31,12 @@ public class SquidMover : MonoBehaviour
             {
                 _currentVector = transform.up;
                 _currentSpeed = _pushForce;
+
+               Instantiate(_ink, transform.position, transform.localRotation);
+
                 _currentTime = 0;
             }
         }
-
 
         transform.Translate(_currentVector * _currentSpeed * Time.deltaTime, Space.World);
         _currentSpeed -= _slowdown;
