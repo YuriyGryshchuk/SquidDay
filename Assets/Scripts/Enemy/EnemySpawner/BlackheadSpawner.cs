@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class BlackheadSpawner : MonoBehaviour
 {
+    [SerializeField] private float _speed;
+    [SerializeField] private float _timeWithSpawn;
     [SerializeField] private Transform[] _spawnPositions;
     [SerializeField] private int _startPullSize = 10;
     [SerializeField] private GameObject _enemy;
@@ -21,7 +23,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        SpawnDelay(3);
+        SpawnDelay(_timeWithSpawn);
     }
 
     private void CreatePullObject()
@@ -37,7 +39,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void SpawnEnemy()
+    protected void SpawnEnemy()
     {
         foreach (var enemy in _pullEnemy)
         {
@@ -46,6 +48,8 @@ public class Spawner : MonoBehaviour
                 enemy.SetActive(true);
                 enemy.transform.position = new Vector3(_spawnPositions[_currentSpawnPosition].transform.position.x,
                     _spawnPositions[_currentSpawnPosition].transform.position.y, 0);
+                Bleackhead ink = enemy.GetComponent<Bleackhead>();
+                ink.Init(_speed);
                 return;
             }
         }
@@ -57,7 +61,6 @@ public class Spawner : MonoBehaviour
         if (_currentTime >= timeWithSpawned)
         {
             _currentSpawnPosition = Random.Range(0, _spawnPositions.Length - 1);
-
             if (_currentSpawnPosition != _previousSpawnPosition)
             {
                 _previousSpawnPosition = _currentSpawnPosition;

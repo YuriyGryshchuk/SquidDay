@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Headgehog : Enemy
 {
-    [SerializeField] private GameObject _target;
+    private GameObject _target;
+    private float _speed;
 
     private void Update()
     {
@@ -13,6 +14,12 @@ public class Headgehog : Enemy
 
     private void MoveToTarget()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, EnemySpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
+    }
+
+    public void Init(GameObject target, float speed)
+    {
+        _target = target;
+        _speed = speed;
     }
 }

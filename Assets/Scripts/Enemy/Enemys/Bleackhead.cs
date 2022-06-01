@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bleackhead : Enemy
 {
    private Vector3 _currentVector;
+    private float _speed;
 
     private void OnEnable()
     {
@@ -18,6 +19,11 @@ public class Bleackhead : Enemy
 
     private void EnemyMove()
     {
-        transform.Translate(_currentVector * EnemySpeed * Time.deltaTime);
+        transform.Translate(_currentVector * _speed * Time.deltaTime);
+    }
+
+    public void Init(float speed)
+    {
+        _speed = speed;
     }
 }

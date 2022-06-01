@@ -5,15 +5,10 @@ using UnityEngine;
 public class Star : Enemy
 {
     [SerializeField] private float _jumpHeight;
-
-    private const float GRAVITY = 9.8f;
-
-    private Vector3 _velocity;
     private Rigidbody2D _rigidbody2D;
 
     private void OnEnable()
     {
-        _velocity = transform.up;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         Jump();
     }
