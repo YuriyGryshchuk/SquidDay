@@ -6,8 +6,6 @@ public class Headgehog : Enemy
 {
     [SerializeField] private GameObject _target;
 
-    private Vector3 _directionToTarget;
-
     private void Update()
     {
         MoveToTarget();

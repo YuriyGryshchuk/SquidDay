@@ -12,9 +12,11 @@ public class SquidMover : MonoBehaviour
     private Vector2 _currentVector;
     private float _currentSpeed;
     private float _currentTime;
+    private Animator _squidAnimator;
 
     private void Start()
     {
+        _squidAnimator = GetComponent<Animator>();
         _currentTime = 0;
     }
 
@@ -33,6 +35,8 @@ public class SquidMover : MonoBehaviour
                 _currentSpeed = _pushForce;
 
                Instantiate(_ink, transform.position, transform.localRotation);
+
+                _squidAnimator.SetTrigger("Forse");
 
                 _currentTime = 0;
             }

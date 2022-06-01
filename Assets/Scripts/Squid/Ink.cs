@@ -15,6 +15,15 @@ public class Ink : MonoBehaviour
         DestroyInk();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<Headgehog>(out Headgehog headgehog))
+        {
+            headgehog.gameObject.SetActive(false);
+            Destroy(this.gameObject);
+        }
+    }
+
     private void InkMove()
     {
         transform.Translate(-transform.up * _inkSpeed * Time.deltaTime, Space.World);
