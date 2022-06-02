@@ -13,6 +13,7 @@ public class SquidMover : MonoBehaviour
     private float _currentSpeed;
     private float _currentTime;
     private Animator _squidAnimator;
+    private bool _isPressed;
 
     private void Start()
     {
@@ -29,7 +30,7 @@ public class SquidMover : MonoBehaviour
     {
         if (_currentTime >= _timeToMove)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || _isPressed)
             {
                 _currentVector = transform.up;
                 _currentSpeed = _pushForce;
@@ -51,5 +52,15 @@ public class SquidMover : MonoBehaviour
     private void Timer()
     {
         _currentTime += Time.deltaTime;
+    }
+
+    public void OnDawn()
+    {
+        _isPressed = true;
+    }
+
+    public void OnUp()
+    {
+        _isPressed = false;
     }
 }
