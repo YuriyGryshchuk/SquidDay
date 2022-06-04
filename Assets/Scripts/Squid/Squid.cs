@@ -9,17 +9,17 @@ public class Squid : MonoBehaviour
     [SerializeField] private float _timeOfImmortality;
 
     private int _score;
-    private Vector3 _startPosition;
+  
     private float _currentTimeImmortality;
     private float _currentTime;
-
+    
     public event UnityAction<int> Die;
     public event UnityAction<int> ChangeHealth;
     public event UnityAction<int> ChangeScore;
 
     private void Start()
     {
-        _startPosition = transform.position;
+   
         _currentTimeImmortality = 0;
         _currentTime = 0;
 }
@@ -38,7 +38,7 @@ public class Squid : MonoBehaviour
         {
             _health -= 1;
             ChangeHealth?.Invoke(_health);
-            transform.position = _startPosition;
+           
             _currentTimeImmortality = 0;
 
             if (_health == 0)
@@ -50,8 +50,10 @@ public class Squid : MonoBehaviour
 
     public void RestartPosition()
     {
-        transform.position = _startPosition;
+     
+        transform.position = -1 * (transform.position * 0.9f);
         _currentTimeImmortality = 0;
+        
     }
 
     private void Dead()

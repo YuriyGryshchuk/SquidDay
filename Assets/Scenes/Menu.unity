@@ -171,12 +171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -263,8 +263,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -403, y: 284}
-  m_SizeDelta: {x: 534.9, y: 224.38}
+  m_AnchoredPosition: {x: -166, y: 306}
+  m_SizeDelta: {x: 1214.38, y: 366.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &26624682
 Animator:
@@ -402,7 +402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36558139}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0102, y: -0.0171, z: 0}
+  m_LocalPosition: {x: 1.93, y: 0.37, z: 0}
   m_LocalScale: {x: 1.95, y: 1.68, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -457,8 +457,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8536385, y: 0.15071288}
   m_AnchorMax: {x: 0.90700006, y: 0.25}
-  m_AnchoredPosition: {x: 0.5, y: 0.5}
-  m_SizeDelta: {x: -0.8699951, y: -2.7799988}
+  m_AnchoredPosition: {x: 15.867432, y: 21.324036}
+  m_SizeDelta: {x: 18.92, y: 17.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &172961188
 MonoBehaviour:
@@ -645,8 +645,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.779723, y: 0.10476238}
   m_AnchorMax: {x: 0.82800007, y: 0.20447527}
-  m_AnchoredPosition: {x: -1, y: -1.5000305}
-  m_SizeDelta: {x: 8.130005, y: -2.7799988}
+  m_AnchoredPosition: {x: -15.153809, y: 8.625732}
+  m_SizeDelta: {x: 29.83, y: 17.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824005300
 MonoBehaviour:
@@ -850,8 +850,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8852771, y: 0.29828712}
   m_AnchorMax: {x: 0.93700004, y: 0.3937129}
-  m_AnchoredPosition: {x: 0.6300049, y: 0.08996582}
-  m_SizeDelta: {x: 3.130005, y: 1.2200012}
+  m_AnchoredPosition: {x: 27.695435, y: 52.06479}
+  m_SizeDelta: {x: 24, y: 22.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347632894
 MonoBehaviour:

@@ -4,9 +4,29 @@ using UnityEngine;
 
 public class PlayerDestroer : MonoBehaviour
 {
+    [SerializeField] private PlayerDestroer OppositeDestroyer;
+
+    public bool isActive = true;
+     
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Squid squid = other.gameObject.GetComponent<Squid>();
-        squid.RestartPosition();
+        if (other.GetComponent<Squid>() && isActive)
+        {
+            Squid squid = other.gameObject.GetComponent<Squid>();
+            
+            squid.RestartPosition();
+
+            OppositeDestroyer.isActive = false;
+
+        }
+        
     }
+ 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        isActive = true;
+    }
+
+    
 }
