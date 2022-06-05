@@ -6,7 +6,11 @@ public abstract class Enemy : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Squid squid = other.gameObject.GetComponent<Squid>();
-        squid.TakeDamage();
+        if (other.GetComponent<Squid>())
+        {
+            Squid squid = other.gameObject.GetComponent<Squid>();
+            squid.TakeDamage();
+        }
+        
     }
 }
