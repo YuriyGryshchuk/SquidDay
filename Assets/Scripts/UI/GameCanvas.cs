@@ -8,10 +8,12 @@ public class GameCanvas : MonoBehaviour
     [SerializeField] private Canvas _pauseCanvas;
     [SerializeField] private Squid _squid;
     [SerializeField] private TMP_Text _score;
+    [SerializeField] private TMP_Text _coins;
 
     private void Start()
     {
         _squid.ChangeScore += ChangeScore;
+        _squid.ChangeCountCoins += ChangeCoins;
     }
 
     public void PauseGame()
@@ -23,6 +25,11 @@ public class GameCanvas : MonoBehaviour
     private void ChangeScore(int score)
     {
         _score.text = score.ToString();
+    }
+
+    private void ChangeCoins(int coins)
+    {
+        _coins.text = coins.ToString();
     }
 
     private void OnDisable()

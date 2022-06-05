@@ -9,13 +9,15 @@ public class Squid : MonoBehaviour
     [SerializeField] private float _timeOfImmortality;
 
     private int _score;
+    private int _coins;
   
     private float _currentTimeImmortality;
     private float _currentTime;
     
-    public event UnityAction<int> Die;
+    public event UnityAction<int, int> Die;
     public event UnityAction<int> ChangeHealth;
     public event UnityAction<int> ChangeScore;
+    public event UnityAction<int> ChangeCountCoins;
 
     private void Start()
     {
@@ -32,12 +34,22 @@ public class Squid : MonoBehaviour
         TakeScore();
     }
 
+
+
+    public void GetCoin()
+    {
+        _coins += 1;
+        ChangeCountCoins?.Invoke(_coins);
+    }
+
+
     public void TakeDamage()
     {
-        if(_currentTimeImmortality >= _timeOfImmortality)
-        {
-            _health -= 1;
+        if(_currentTimeImmortality >= _timeOfImmortality) { 
+
             ChangeHealth?.Invoke(_health);
+            _health -= 1;
+            
            
             _currentTimeImmortality = 0;
 
@@ -58,7 +70,7 @@ public class Squid : MonoBehaviour
 
     private void Dead()
     {
-        Die?.Invoke(_score);
+        Die?.Invoke(_score, _coins);
     }
 
     private void TakeScore()
@@ -71,4 +83,6 @@ public class Squid : MonoBehaviour
         }
 
     }
+
+    
 }

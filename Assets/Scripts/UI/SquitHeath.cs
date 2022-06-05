@@ -12,20 +12,21 @@ public class SquitHeath : MonoBehaviour
         _squid.ChangeHealth += ChangeHealth;
     }
 
-    private void ChangeHealth(int health)
+    private void ChangeHealth(int HealthCell)
     {
-        if (health > _healthImages.Length)
-            health = _healthImages.Length;
+        if (HealthCell > _healthImages.Length)
+            HealthCell = _healthImages.Length;
 
-        foreach (var image in _healthImages)
-        {
-            image.SetActive(false);
-        }
+        //foreach (var image in _healthImages)
+        //{
+        //    image.SetActive(false);
+        //}
 
-        for (int i = 0; i <= health - 1; i++)
-        {
-            _healthImages[i].SetActive(true);
-        }
+        //for (int i = 0; i <= health - 1; i++)
+        //{
+        //    _healthImages[i].SetActive(true);
+        //}
+        _healthImages[HealthCell - 1].SetActive(false);
     }
 
     private void OnDisable()
