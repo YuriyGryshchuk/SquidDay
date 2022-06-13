@@ -7,10 +7,11 @@ public class Squid : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private float _timeOfImmortality;
+    [SerializeField] private RestartSystem _restartSystem;
 
     private int _score;
     private int _coins;
-  
+   
     private float _currentTimeImmortality;
     private float _currentTime;
     
@@ -21,9 +22,11 @@ public class Squid : MonoBehaviour
 
     private void Start()
     {
-   
+        
         _currentTimeImmortality = 0;
         _currentTime = 0;
+        _restartSystem.onRestart.AddListener(RestartStats);
+        _restartSystem.onRevival.AddListener(Revival);
 }
 
     private void Update()
@@ -32,25 +35,34 @@ public class Squid : MonoBehaviour
         _currentTimeImmortality += Time.deltaTime;
 
         TakeScore();
+      
     }
 
-
-
-    public void GetCoin()
+    public void PickCoin()
     {
+       
         _coins += 1;
         ChangeCountCoins?.Invoke(_coins);
     }
 
 
+    public int GetCoins()
+    {
+        return _coins;
+    }
+
+    public void RemoveCoins(int coins)
+    {
+        _coins -= coins;
+    }
     public void TakeDamage()
     {
         if(_currentTimeImmortality >= _timeOfImmortality) { 
 
-            ChangeHealth?.Invoke(_health);
-            _health -= 1;
             
-           
+            _health -= 1;
+            ChangeHealth?.Invoke(_health);
+
             _currentTimeImmortality = 0;
 
             if (_health == 0)
@@ -60,16 +72,34 @@ public class Squid : MonoBehaviour
         }
     }
 
-    public void RestartPosition()
+    public void QQPosition()
     {
      
         transform.position = -1 * (transform.position * 0.9f);
         _currentTimeImmortality = 0;
         
     }
+    public void RestartStats()
+    {
+        this.gameObject.SetActive(true);
+        transform.position = Vector3.zero;
+        _health = 3;
+        ChangeHealth?.Invoke(_health);
+        _score = 0;
+        ChangeScore?.Invoke(_score);
+        
+    }
+    public void Revival()
+    {
+        this.gameObject.SetActive(true);
+        _health = 3;
+        ChangeHealth?.Invoke(_health);
+        
+    }
 
     private void Dead()
     {
+        this.gameObject.SetActive(false);
         Die?.Invoke(_score, _coins);
     }
 

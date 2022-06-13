@@ -15,7 +15,7 @@ public class PlayerDestroer : MonoBehaviour
         {
             Squid squid = other.gameObject.GetComponent<Squid>();
             
-            squid.RestartPosition();
+            squid.QQPosition();
 
             OppositeDestroyer.isActive = false;
 

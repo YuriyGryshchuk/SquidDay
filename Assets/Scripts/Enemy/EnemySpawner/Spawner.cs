@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int _startPullSize = 10;
     [SerializeField] private GameObject _enemy;
     [SerializeField] private float _timeWithSpawn;
-
+    [SerializeField] private RestartSystem _restartSystem;
     private List<GameObject> _pullEnemy = new List<GameObject>();
     private float _currentTime;
     private int _previousSpawnPosition;
@@ -21,12 +21,23 @@ public class Spawner : MonoBehaviour
     {
         CreatePullObject();
         _currentTime = 0f;
+        _restartSystem.onRestart.AddListener(DisableAllEnemy);
+        _restartSystem.onRevival.AddListener(DisableAllEnemy);
     }
 
   
     private void Update()
     {
         SpawnDelay(_timeWithSpawn);
+    }
+
+    public void DisableAllEnemy()
+    {
+        _currentTime = 0f;
+        foreach (var enemy in _pullEnemy)
+        {
+            enemy.SetActive(false);
+        }
     }
     private void CreatePullObject()
     {
@@ -35,10 +46,7 @@ public class Spawner : MonoBehaviour
             _pullEnemy.Add(Instantiate(_enemy, transform.position, Quaternion.identity));
         }
 
-        foreach (var enemy in _pullEnemy)
-        {
-            enemy.SetActive(false);
-        }
+        DisableAllEnemy();
     }
 
     protected void SpawnEnemy()

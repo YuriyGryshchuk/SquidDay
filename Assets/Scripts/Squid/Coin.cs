@@ -27,8 +27,8 @@ public class Coin : MonoBehaviour
         {
 
 
-            other.GetComponent<Squid>().GetCoin();
-            Destroy(this.gameObject);
+            other.GetComponent<Squid>().PickCoin();
+            this.gameObject.SetActive(false);
         }
     }
     public void Init(float speed)

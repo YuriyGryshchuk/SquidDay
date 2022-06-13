@@ -14,19 +14,32 @@ public class SquitHeath : MonoBehaviour
 
     private void ChangeHealth(int HealthCell)
     {
-        if (HealthCell > _healthImages.Length)
-            HealthCell = _healthImages.Length;
 
-        //foreach (var image in _healthImages)
-        //{
-        //    image.SetActive(false);
-        //}
+       if(HealthCell == 3)
+        {
+            for (int i = 0; i < HealthCell; i++)
+            {
+               
+                    _healthImages[i].SetActive(true);
+                
 
-        //for (int i = 0; i <= health - 1; i++)
-        //{
-        //    _healthImages[i].SetActive(true);
-        //}
-        _healthImages[HealthCell - 1].SetActive(false);
+            }
+            return;
+        }
+
+        for (int i = 0; i <= HealthCell; i++)
+        {
+            if(i == HealthCell)
+            {
+                _healthImages[i].SetActive(false);
+            }
+            else
+            {
+                _healthImages[i].SetActive(true);
+            }
+           
+        }
+
     }
 
     private void OnDisable()
