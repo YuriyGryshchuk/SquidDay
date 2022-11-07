@@ -100,12 +100,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1124013807549781389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8f176cec196cac4b9926a70d87f41fa, type: 3}
+  m_Script: {fileID: 11500000, guid: d22428ee19da19444800ef4ca89fbf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 3
-  _timeOfImmortality: 0.5
-  _restartSystem: {fileID: 0}
+  _timeOfImmortality: 2
 --- !u!114 &1124013807549781377
 MonoBehaviour:
   m_ObjectHideFlags: 0

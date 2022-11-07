@@ -5,19 +5,19 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using Zenject;
+
 public class DeadCanvas : MonoBehaviour
 {
-    [SerializeField] private Squid _squid;
     [SerializeField] private Canvas _deadCanvas;
     [SerializeField] private Canvas _revivalCanvas;
     [SerializeField] private TMP_Text _score;
     [SerializeField] private TMP_Text _coins;
-    [SerializeField] private RestartSystem _restartSystem;
     [SerializeField] private Image _revivalTimer;
     [SerializeField] private Button _deadButton;
     [SerializeField] private Button _saveButton;
-    [SerializeField] private RevivalAds _rewardedAds;
 
+    private PlayerHealth _playerHealth;
 
     private float _revivalTime = 1f;
     private bool _isRevival;
@@ -25,10 +25,9 @@ public class DeadCanvas : MonoBehaviour
 
     private void Start()
     {
-        _squid.Die += Dead;
+        //_squid.Dead += Dead;
         _isRevival = false;
         DiableAllDeadCanvas();
-        _restartSystem.onRevival.AddListener(DiableAllDeadCanvas);
     }
     private void Update()
     {
@@ -69,7 +68,7 @@ public class DeadCanvas : MonoBehaviour
     {
       
 
-        _restartSystem.Restart();
+        //_restartSystem.Restart();
         _isRevivaled = false;
         Time.timeScale = 1;
         _deadCanvas.enabled = false;
@@ -85,7 +84,7 @@ public class DeadCanvas : MonoBehaviour
     {
         _isRevival = false;
         _revivalTime = 1f;
-        _rewardedAds.AdsShow();
+       // _rewardedAds.AdsShow();
         _isRevivaled = true;
     }
     private void DiableAllDeadCanvas()

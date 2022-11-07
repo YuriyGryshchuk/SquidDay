@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BlackheadSpawner : Spawner
@@ -8,8 +6,8 @@ public class BlackheadSpawner : Spawner
  
     protected override void InitEnemy(Enemy enemy)
     {
-        Bleackhead ink = enemy.GetComponent<Bleackhead>();
-        ink.Init(_speed);
+        Bleackhead bleackhead = enemy.GetComponent<Bleackhead>();
+        bleackhead.Init(_speed);
     }
  
 }

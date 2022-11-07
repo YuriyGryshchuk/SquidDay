@@ -13,7 +13,6 @@ public class CoinSpawner : MonoBehaviour
     [SerializeField] private float _speedFall;
 
 
-    [SerializeField] private RestartSystem _restartSystem;
 
     private List<Coin> _objectPull;
 
@@ -21,7 +20,7 @@ public class CoinSpawner : MonoBehaviour
     {
         
         CreateObjectPull();
-        _restartSystem.onRestart.AddListener(DisableAllCoin);
+        //_restartSystem.onRestart.AddListener(DisableAllCoin);
         StartCoroutine(Timer());
     }
 
