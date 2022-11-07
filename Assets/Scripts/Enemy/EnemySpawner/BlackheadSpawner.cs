@@ -11,5 +11,4 @@ public class BlackheadSpawner : Spawner
         Bleackhead ink = enemy.GetComponent<Bleackhead>();
         ink.Init(_speed);
     }
- 
 }

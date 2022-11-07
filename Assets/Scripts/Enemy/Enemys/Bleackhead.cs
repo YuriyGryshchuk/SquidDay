@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bleackhead : Enemy
 {
-   private Vector3 _currentVector;
+    private Vector3 _currentVector;
+    private float _initialSpeed;
     private float _speed;
 
     private void OnEnable()
@@ -24,6 +25,12 @@ public class Bleackhead : Enemy
 
     public void Init(float speed)
     {
-        _speed = speed;
+        _initialSpeed = speed;
+    }
+
+    protected override void OnDifficultyChanged(float difficulty)
+    {
+        base.OnDifficultyChanged(difficulty);
+        _speed = _initialSpeed + difficulty * 0.03f;
     }
 }
