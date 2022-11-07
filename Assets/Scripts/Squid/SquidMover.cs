@@ -26,6 +26,20 @@ public class SquidMover : MonoBehaviour
         Timer();
         PushSquid();
     }
+
+    private void LimitPosition()
+    {
+        RectangleBounds bounds = Camera.main.GetComponent<CameraBounds>().RectBounds;
+        var v3 = transform.position;
+        if (transform.position.x < bounds.minX || transform.position.x > bounds.maxX || transform.position.y < bounds.minY || transform.position.y > bounds.maxY)
+        {
+            v3.x = Mathf.Clamp(v3.x, bounds.minX, bounds.maxX);
+            v3.y = Mathf.Clamp(v3.y, bounds.minY, bounds.maxY);
+            v3 *= -1;
+            transform.position = v3;
+        }
+    }
+
     private void PushSquid()
     {
         if (_currentTime >= _timeToMove)
@@ -44,6 +58,7 @@ public class SquidMover : MonoBehaviour
         }
 
         transform.Translate(_currentVector * _currentSpeed * Time.deltaTime, Space.World);
+        LimitPosition();
         _currentSpeed -= _slowdown;
         if (_currentSpeed <= 0)
             _currentSpeed = 0;

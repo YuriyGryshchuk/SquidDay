@@ -11,10 +11,10 @@ public class Squid : MonoBehaviour
 
     private int _score;
     private int _coins;
-   
+
     private float _currentTimeImmortality;
     private float _currentTime;
-    
+
     public event UnityAction<int, int> Die;
     public event UnityAction<int> ChangeHealth;
     public event UnityAction<int> ChangeScore;
@@ -22,12 +22,12 @@ public class Squid : MonoBehaviour
 
     private void Start()
     {
-        
+
         _currentTimeImmortality = 0;
         _currentTime = 0;
         _restartSystem.onRestart.AddListener(RestartStats);
         _restartSystem.onRevival.AddListener(Revival);
-}
+    }
 
     private void Update()
     {
@@ -35,12 +35,12 @@ public class Squid : MonoBehaviour
         _currentTimeImmortality += Time.deltaTime;
 
         TakeScore();
-      
+
     }
 
     public void PickCoin()
     {
-       
+
         _coins += 1;
         ChangeCountCoins?.Invoke(_coins);
     }
@@ -57,9 +57,10 @@ public class Squid : MonoBehaviour
     }
     public void TakeDamage()
     {
-        if(_currentTimeImmortality >= _timeOfImmortality) { 
+        if (_currentTimeImmortality >= _timeOfImmortality)
+        {
 
-            
+
             _health -= 1;
             ChangeHealth?.Invoke(_health);
 
@@ -74,10 +75,10 @@ public class Squid : MonoBehaviour
 
     public void QQPosition()
     {
-     
+
         transform.position = -1 * (transform.position * 0.9f);
         _currentTimeImmortality = 0;
-        
+
     }
     public void RestartStats()
     {
@@ -87,14 +88,14 @@ public class Squid : MonoBehaviour
         ChangeHealth?.Invoke(_health);
         _score = 0;
         ChangeScore?.Invoke(_score);
-        
+
     }
     public void Revival()
     {
         this.gameObject.SetActive(true);
         _health = 3;
         ChangeHealth?.Invoke(_health);
-        
+
     }
 
     private void Dead()
@@ -105,7 +106,7 @@ public class Squid : MonoBehaviour
 
     private void TakeScore()
     {
-        if(_currentTime >= 1)
+        if (_currentTime >= 1)
         {
             _score++;
             ChangeScore?.Invoke(_score);
@@ -114,5 +115,5 @@ public class Squid : MonoBehaviour
 
     }
 
-    
+
 }
