@@ -9,7 +9,6 @@ public class Squid : MonoBehaviour
     [SerializeField] private float _timeOfImmortality;
     [SerializeField] private RestartSystem _restartSystem;
 
-    private int _score;
     private int _coins;
 
     private float _currentTimeImmortality;
@@ -17,7 +16,6 @@ public class Squid : MonoBehaviour
 
     public event UnityAction<int, int> Die;
     public event UnityAction<int> ChangeHealth;
-    public event UnityAction<int> ChangeScore;
     public event UnityAction<int> ChangeCountCoins;
 
     private void Start()
@@ -33,9 +31,6 @@ public class Squid : MonoBehaviour
     {
         _currentTime += Time.deltaTime;
         _currentTimeImmortality += Time.deltaTime;
-
-        TakeScore();
-
     }
 
     public void PickCoin()
@@ -86,9 +81,6 @@ public class Squid : MonoBehaviour
         transform.position = Vector3.zero;
         _health = 3;
         ChangeHealth?.Invoke(_health);
-        _score = 0;
-        ChangeScore?.Invoke(_score);
-
     }
     public void Revival()
     {
@@ -101,19 +93,6 @@ public class Squid : MonoBehaviour
     private void Dead()
     {
         this.gameObject.SetActive(false);
-        Die?.Invoke(_score, _coins);
+        //Die?.Invoke(_score, _coins);
     }
-
-    private void TakeScore()
-    {
-        if (_currentTime >= 1)
-        {
-            _score++;
-            ChangeScore?.Invoke(_score);
-            _currentTime = 0;
-        }
-
-    }
-
-
 }

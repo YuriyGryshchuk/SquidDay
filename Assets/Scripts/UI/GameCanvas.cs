@@ -1,19 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class GameCanvas : MonoBehaviour
 {
     [SerializeField] private Canvas _pauseCanvas;
-    [SerializeField] private Squid _squid;
     [SerializeField] private TMP_Text _score;
     [SerializeField] private TMP_Text _coins;
 
+    private ScoreCouner _scoreCouner;
+
+    [Inject]
+    private void Construct(ScoreCouner scoreCouner)
+    {
+        _scoreCouner = scoreCouner;
+    }
+
     private void Start()
     {
-        _squid.ChangeScore += ChangeScore;
-        _squid.ChangeCountCoins += ChangeCoins;
+        _scoreCouner.ChangeScore += ChangeScore;
+        //_squid.ChangeCountCoins += ChangeCoins;
     }
 
     public void PauseGame()
@@ -34,6 +40,6 @@ public class GameCanvas : MonoBehaviour
 
     private void OnDisable()
     {
-        _squid.ChangeScore -= ChangeScore;
+        _scoreCouner.ChangeScore -= ChangeScore;
     }
 }
