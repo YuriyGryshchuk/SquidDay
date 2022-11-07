@@ -5,6 +5,7 @@ using UnityEngine;
 public class Headgehog : Enemy
 {
     private GameObject _target;
+    private float _initialSpeed;
     private float _speed;
     [SerializeField]
     private float _rotationSpeed = 5;
@@ -31,6 +32,12 @@ public class Headgehog : Enemy
     public void Init(GameObject target, float speed)
     {
         _target = target;
-        _speed = speed;
+        _initialSpeed = speed;
+    }
+
+    protected override void OnDifficultyChanged(float difficulty)
+    {
+        base.OnDifficultyChanged(difficulty);
+        _speed = _initialSpeed + difficulty * 0.03f;
     }
 }

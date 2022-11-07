@@ -2725,7 +2725,7 @@ MonoBehaviour:
   - {fileID: 1097521874}
   _startPullSize: 10
   _enemy: {fileID: 6516151966514141832, guid: 315c6d5d8df459b4bb2b670cde78f8aa, type: 3}
-  _timeWithSpawn: 3
+  _initialSpawnDelay: 5
   _restartSystem: {fileID: 1292672464}
   _speed: 2
 --- !u!1 &613443354
@@ -2758,6 +2758,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1824963783}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &704402634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704402636}
+  - component: {fileID: 704402635}
+  m_Layer: 0
+  m_Name: DifficultyChanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &704402635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704402634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70557be8c9d69f34e8ba197bf3293148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &704402636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704402634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5535341, y: -0.28723055, z: -8.714569}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &722692236
 GameObject:
@@ -4997,7 +5041,7 @@ MonoBehaviour:
   - {fileID: 1595552368}
   _startPullSize: 2
   _enemy: {fileID: 4831209003127984151, guid: 295174d915d8ea741b9bb9e53702b2ea, type: 3}
-  _timeWithSpawn: 3
+  _initialSpawnDelay: 5
   _restartSystem: {fileID: 1292672464}
   _target: {fileID: 74436372}
   _speed: 2
@@ -6837,7 +6881,7 @@ MonoBehaviour:
   - {fileID: 1788688041}
   _startPullSize: 10
   _enemy: {fileID: 6020380204335284154, guid: 31757a0d473362d47abef4b393e0d516, type: 3}
-  _timeWithSpawn: 3
+  _initialSpawnDelay: 5
   _restartSystem: {fileID: 1292672464}
 --- !u!1 &1684474538
 GameObject:
@@ -7770,7 +7814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -28}
+  m_AnchoredPosition: {x: 0, y: -28.000015}
   m_SizeDelta: {x: -28.090576, y: 13.854126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1766217374

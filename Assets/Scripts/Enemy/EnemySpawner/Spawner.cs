@@ -7,28 +7,31 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Transform[] _spawnPositions;
     [SerializeField] private int _startPullSize = 10;
     [SerializeField] private GameObject _enemy;
-    [SerializeField] private float _timeWithSpawn;
+    [SerializeField] private float _initialSpawnDelay;
     [SerializeField] private RestartSystem _restartSystem;
+    private float _spawnDelay;
     private List<GameObject> _pullEnemy = new List<GameObject>();
     private float _currentTime;
     private int _previousSpawnPosition;
     private int _currentSpawnPosition;
 
-
-
+    protected DifficultyChanger _difficultyChanger;
 
     private void OnEnable()
     {
+        _spawnDelay = _initialSpawnDelay;
         CreatePullObject();
         _currentTime = 0f;
         _restartSystem.onRestart.AddListener(DisableAllEnemy);
         _restartSystem.onRevival.AddListener(DisableAllEnemy);
+        // TODO remove Find
+        _difficultyChanger = FindObjectOfType<DifficultyChanger>();
+        _difficultyChanger.DifficultyChanged += OnDifficultyChanged;
     }
 
-  
     private void Update()
     {
-        SpawnDelay(_timeWithSpawn);
+        SpawnDelay(_spawnDelay);
     }
 
     public void DisableAllEnemy()
@@ -39,6 +42,12 @@ public class Spawner : MonoBehaviour
             enemy.SetActive(false);
         }
     }
+
+    protected virtual void OnDifficultyChanged(float difficulty)
+    {
+        _spawnDelay = _initialSpawnDelay / (difficulty * 0.03f + 1);
+    }
+
     private void CreatePullObject()
     {
         for (int i = 0; i <= _startPullSize; i++)
@@ -63,10 +72,12 @@ public class Spawner : MonoBehaviour
             }
         }
     }
+
     protected virtual void InitEnemy(Enemy enemy)
     {
-
+        
     }
+
     protected void SpawnDelay(float timeWithSpawned)
     {
         _currentTime += Time.deltaTime;
