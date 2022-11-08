@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ink : MonoBehaviour
@@ -32,7 +30,6 @@ public class Ink : MonoBehaviour
     private void DestroyInk()
     {
         _currentTime += Time.deltaTime;
-
         if (_currentTime >= _lifeTime)
             Destroy(this.gameObject);
     }

@@ -8,12 +8,12 @@ public class PlayerLocationInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        BindPlayer();
+        BindPlayerHealth();
     }
 
-    private void BindPlayer()
+    private void BindPlayerHealth()
     {
-        Squid player = Container.InstantiatePrefabForComponent<Squid>(_playerPrefab, Vector3.zero, Quaternion.identity, null);
-        Container.Bind<Squid>().FromInstance(player).AsSingle().NonLazy();
+        PlayerHealth player = Container.InstantiatePrefabForComponent<PlayerHealth>(_playerPrefab, Vector3.zero, Quaternion.identity, null);
+        Container.Bind<PlayerHealth>().FromInstance(player).AsSingle().NonLazy();
     }
 }

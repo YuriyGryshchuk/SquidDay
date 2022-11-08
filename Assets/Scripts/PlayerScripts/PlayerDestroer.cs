@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDestroer : MonoBehaviour
@@ -11,11 +9,11 @@ public class PlayerDestroer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Squid>() && isActive)
+        if (other.GetComponent<PlayerHealth>() && isActive)
         {
-            Squid squid = other.gameObject.GetComponent<Squid>();
+            PlayerHealth squid = other.gameObject.GetComponent<PlayerHealth>();
             
-            squid.QQPosition();
+            //squid.QQPosition();
 
             OppositeDestroyer.isActive = false;
 

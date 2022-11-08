@@ -5,11 +5,11 @@ using UnityEngine;
 public class SquitHeath : MonoBehaviour
 {
     [SerializeField] private GameObject[] _healthImages;
-    [SerializeField] private Squid _squid;
+    [SerializeField] private PlayerHealth _squid;
 
     private void Start()
     {
-        _squid.ChangeHealth += ChangeHealth;
+        _squid.ChangedHealth += ChangeHealth;
     }
 
     private void ChangeHealth(int HealthCell)
@@ -44,6 +44,6 @@ public class SquitHeath : MonoBehaviour
 
     private void OnDisable()
     {
-        _squid.ChangeHealth += ChangeHealth;
+        _squid.ChangedHealth += ChangeHealth;
     }
 }

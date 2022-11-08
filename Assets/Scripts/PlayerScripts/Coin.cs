@@ -23,11 +23,11 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Squid>())
+        if (other.GetComponent<PlayerHealth>())
         {
 
 
-            other.GetComponent<Squid>().PickCoin();
+            //other.GetComponent<PlayerHealth>().PickCoin();
             this.gameObject.SetActive(false);
         }
     }
