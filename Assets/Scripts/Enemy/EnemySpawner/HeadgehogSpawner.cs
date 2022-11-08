@@ -15,9 +15,8 @@ public class HeadgehogSpawner : Spawner
 
     protected override void InitEnemy(Enemy enemy)
     {
-        base.InitEnemy(enemy);
-        Headgehog ink = enemy.GetComponent<Headgehog>();
-        ink.Init(_target, _speed);
+        Headgehog headgehog = enemy.GetComponent<Headgehog>();
+        headgehog.Init(_target.gameObject, _speed);
     }
 }
 

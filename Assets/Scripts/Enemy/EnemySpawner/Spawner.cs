@@ -7,7 +7,7 @@ public abstract class Spawner : MonoBehaviour
     [SerializeField] private int _startPullSize = 10;
     [SerializeField] private GameObject _enemy;
     [SerializeField] private float _initialSpawnDelay;
-    [SerializeField] private RestartSystem _restartSystem;
+    
     private float _spawnDelay;
     private List<GameObject> _pullEnemy = new List<GameObject>();
     private float _currentTime;
@@ -21,8 +21,7 @@ public abstract class Spawner : MonoBehaviour
         _spawnDelay = _initialSpawnDelay;
         CreatePullObject();
         _currentTime = 0f;
-        _restartSystem.onRestart.AddListener(DisableAllEnemy);
-        _restartSystem.onRevival.AddListener(DisableAllEnemy);
+
         // TODO remove Find
         _difficultyChanger = FindObjectOfType<DifficultyChanger>();
         _difficultyChanger.DifficultyChanged += OnDifficultyChanged;
