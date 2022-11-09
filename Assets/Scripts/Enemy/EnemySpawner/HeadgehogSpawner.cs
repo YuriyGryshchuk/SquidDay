@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-public class HeadgehogSpawner : Spawner
+public class HeadgehogSpawner : EnemySpawner
 {
     [SerializeField] private float _speed;
    
@@ -15,7 +15,7 @@ public class HeadgehogSpawner : Spawner
 
     protected override void InitEnemy(Enemy enemy)
     {
-        Headgehog headgehog = enemy.GetComponent<Headgehog>();
+        Hedgehog headgehog = enemy.GetComponent<Hedgehog>();
         headgehog.Init(_target.gameObject, _speed);
     }
 }

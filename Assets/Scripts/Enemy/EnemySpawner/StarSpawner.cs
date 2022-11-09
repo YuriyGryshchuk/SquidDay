@@ -1,5 +1,5 @@
 
-public class StarSpawner : Spawner
+public class StarSpawner : EnemySpawner
 {
     protected override void InitEnemy(Enemy enemy)
     {

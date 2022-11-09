@@ -5,7 +5,7 @@ public class Star : Enemy
     [SerializeField] private float _jumpHeight;
     private Rigidbody2D _rigidbody2D;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         Jump();
