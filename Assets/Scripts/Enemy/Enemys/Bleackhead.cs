@@ -8,8 +8,9 @@ public class Bleackhead : Enemy
     private float _initialSpeed;
     private float _speed;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         _currentVector = new Vector3(-1, 0, 0);
     }
 

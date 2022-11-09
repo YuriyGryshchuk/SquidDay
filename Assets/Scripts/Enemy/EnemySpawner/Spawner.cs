@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public abstract class Spawner : MonoBehaviour
 {
     [SerializeField] private Transform[] _spawnPositions;
     [SerializeField] private int _startPullSize = 10;
-    [SerializeField] private GameObject _enemy;
+    [SerializeField] private Enemy _enemy;
     [SerializeField] private float _initialSpawnDelay;
     
     private float _spawnDelay;
@@ -16,15 +17,23 @@ public abstract class Spawner : MonoBehaviour
 
     protected DifficultyChanger _difficultyChanger;
 
+    [Inject]
+    private void Construct(DifficultyChanger difficultyChanger)
+    {
+        _difficultyChanger = difficultyChanger;
+    }
+
     private void OnEnable()
     {
         _spawnDelay = _initialSpawnDelay;
         CreatePullObject();
         _currentTime = 0f;
-
-        // TODO remove Find
-        _difficultyChanger = FindObjectOfType<DifficultyChanger>();
         _difficultyChanger.DifficultyChanged += OnDifficultyChanged;
+    }
+
+    private void OnDisable()
+    {
+        _difficultyChanger.DifficultyChanged -= OnDifficultyChanged;
     }
 
     private void Update()
@@ -50,7 +59,9 @@ public abstract class Spawner : MonoBehaviour
     {
         for (int i = 0; i <= _startPullSize; i++)
         {
-            _pullEnemy.Add(Instantiate(_enemy, transform.position, Quaternion.identity));
+            Enemy enemy = Instantiate(_enemy, transform.position, Quaternion.identity);
+            enemy.SetDifficultyChanger(_difficultyChanger);
+            _pullEnemy.Add(enemy.gameObject);
         }
 
         DisableAllEnemy();

@@ -4,11 +4,20 @@ public abstract class Enemy : MonoBehaviour
 {
     private DifficultyChanger _difficultyChanger;
 
-    private void Start()
+    public void SetDifficultyChanger(DifficultyChanger difficultyChanger)
     {
-        // TODO: remove FindObjectOfType
-        _difficultyChanger = FindObjectOfType<DifficultyChanger>();
-        _difficultyChanger.DifficultyChanged += OnDifficultyChanged;
+        _difficultyChanger = difficultyChanger;
+    }
+
+    protected virtual void OnEnable()
+    {
+        if (_difficultyChanger != null)
+            _difficultyChanger.DifficultyChanged += OnDifficultyChanged;
+    }
+
+    protected virtual void OnDisable()
+    {
+        _difficultyChanger.DifficultyChanged -= OnDifficultyChanged;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
