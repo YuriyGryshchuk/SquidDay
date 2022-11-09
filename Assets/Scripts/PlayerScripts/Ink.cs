@@ -15,7 +15,7 @@ public class Ink : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Headgehog>(out Headgehog headgehog))
+        if (collision.gameObject.TryGetComponent<Hedgehog>(out Hedgehog headgehog))
         {
             headgehog.gameObject.SetActive(false);
             Destroy(this.gameObject);

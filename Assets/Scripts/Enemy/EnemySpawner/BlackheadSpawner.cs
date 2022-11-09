@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BlackheadSpawner : Spawner
+public class BlackheadSpawner : EnemySpawner
 {
     [SerializeField] private float _speed;
  

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Headgehog : Enemy
+public class Hedgehog : Enemy
 {
     private GameObject _target;
     private float _initialSpeed;

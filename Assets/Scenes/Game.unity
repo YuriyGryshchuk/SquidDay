@@ -2456,7 +2456,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 613038495}
-  - component: {fileID: 613038496}
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
@@ -2479,29 +2478,6 @@ Transform:
   m_Father: {fileID: 2043150777}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &613038496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613038494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd0ea4f3294cd3c47867f4b392678a1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnPositions:
-  - {fileID: 613038495}
-  - {fileID: 1293084147}
-  - {fileID: 1513689143}
-  - {fileID: 1665472552}
-  - {fileID: 1515615467}
-  - {fileID: 1097521874}
-  _startPullSize: 10
-  _enemy: {fileID: 6516151966514141836, guid: 315c6d5d8df459b4bb2b670cde78f8aa, type: 3}
-  _initialSpawnDelay: 5
-  _speed: 2
 --- !u!1 &613443354
 GameObject:
   m_ObjectHideFlags: 0
@@ -4738,7 +4714,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1227020762}
-  - component: {fileID: 1227020763}
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
@@ -4761,31 +4736,6 @@ Transform:
   m_Father: {fileID: 1824963783}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1227020763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227020761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6400e078cb4bd34f8b09eb81bcf0ab8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnPositions:
-  - {fileID: 1227020762}
-  - {fileID: 613443355}
-  - {fileID: 819457712}
-  - {fileID: 525881618}
-  - {fileID: 299864080}
-  - {fileID: 1210459458}
-  - {fileID: 428266698}
-  - {fileID: 1595552368}
-  _startPullSize: 2
-  _enemy: {fileID: 4831209003127984146, guid: 295174d915d8ea741b9bb9e53702b2ea, type: 3}
-  _initialSpawnDelay: 5
-  _speed: 2
 --- !u!1 &1254492129
 GameObject:
   m_ObjectHideFlags: 0
@@ -6555,7 +6505,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1681942532}
-  - component: {fileID: 1681942533}
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
@@ -6578,28 +6527,6 @@ Transform:
   m_Father: {fileID: 2118203312}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1681942533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681942531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccfaadb40b0df8f489859eeb7b638154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnPositions:
-  - {fileID: 1681942532}
-  - {fileID: 531834172}
-  - {fileID: 479754359}
-  - {fileID: 1796458229}
-  - {fileID: 456918665}
-  - {fileID: 1788688041}
-  _startPullSize: 10
-  _enemy: {fileID: 6020380204335284155, guid: 31757a0d473362d47abef4b393e0d516, type: 3}
-  _initialSpawnDelay: 5
 --- !u!1 &1684474538
 GameObject:
   m_ObjectHideFlags: 0
@@ -8088,6 +8015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1824963783}
+  - component: {fileID: 1824963784}
   m_Layer: 0
   m_Name: Headgehog Spawners
   m_TagString: Untagged
@@ -8118,6 +8046,31 @@ Transform:
   m_Father: {fileID: 1109124751}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1824963784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824963782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6400e078cb4bd34f8b09eb81bcf0ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnObject: {fileID: 4831209003127984146, guid: 295174d915d8ea741b9bb9e53702b2ea, type: 3}
+  _spawnPositions:
+  - {fileID: 1227020762}
+  - {fileID: 613443355}
+  - {fileID: 819457712}
+  - {fileID: 525881618}
+  - {fileID: 299864080}
+  - {fileID: 1210459458}
+  - {fileID: 428266698}
+  - {fileID: 1595552368}
+  _startPullSize: 2
+  _initialSpawnDelay: 5
+  _speed: 2
 --- !u!1 &1835811980
 GameObject:
   m_ObjectHideFlags: 0
@@ -8921,6 +8874,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2043150777}
+  - component: {fileID: 2043150778}
   m_Layer: 0
   m_Name: Blackhead Spawners
   m_TagString: Untagged
@@ -8949,6 +8903,29 @@ Transform:
   m_Father: {fileID: 1109124751}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2043150778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043150776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0ea4f3294cd3c47867f4b392678a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnObject: {fileID: 6516151966514141836, guid: 315c6d5d8df459b4bb2b670cde78f8aa, type: 3}
+  _spawnPositions:
+  - {fileID: 613038495}
+  - {fileID: 1293084147}
+  - {fileID: 1513689143}
+  - {fileID: 1665472552}
+  - {fileID: 1515615467}
+  - {fileID: 1097521874}
+  _startPullSize: 10
+  _initialSpawnDelay: 5
+  _speed: 2
 --- !u!1 &2050269944
 GameObject:
   m_ObjectHideFlags: 0
@@ -9495,6 +9472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2118203312}
+  - component: {fileID: 2118203313}
   m_Layer: 0
   m_Name: Star Spawners
   m_TagString: Untagged
@@ -9523,6 +9501,28 @@ Transform:
   m_Father: {fileID: 1109124751}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2118203313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118203311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfaadb40b0df8f489859eeb7b638154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnObject: {fileID: 6020380204335284155, guid: 31757a0d473362d47abef4b393e0d516, type: 3}
+  _spawnPositions:
+  - {fileID: 1681942532}
+  - {fileID: 531834172}
+  - {fileID: 479754359}
+  - {fileID: 1796458229}
+  - {fileID: 456918665}
+  - {fileID: 1788688041}
+  _startPullSize: 10
+  _initialSpawnDelay: 5
 --- !u!1 &2134812369
 GameObject:
   m_ObjectHideFlags: 0
