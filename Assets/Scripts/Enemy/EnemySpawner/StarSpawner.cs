@@ -1,8 +1,8 @@
 
-public class StarSpawner : EnemySpawner
+public class StarSpawner : EnemySpawner<Star>
 {
-    protected override void InitEnemy(Enemy enemy)
+    protected override void InitEnemy(Star enemy)
     {
-        Star start = enemy.GetComponent<Star>();
+        //Star start = enemy.GetComponent<Star>();
     }
 }

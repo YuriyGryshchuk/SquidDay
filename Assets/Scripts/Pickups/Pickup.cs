@@ -1,7 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Pickup : MonoBehaviour
 {
     private DifficultyChanger _difficultyChanger;
 
@@ -24,12 +26,13 @@ public abstract class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<PlayerHealth>())
+        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+        if (playerHealth)
         {
-            PlayerHealth squid = other.gameObject.GetComponent<PlayerHealth>();
-            squid.TakeDamage();
+            OnCollideWithPlayer(playerHealth);
         }
     }
 
+    protected abstract void OnCollideWithPlayer(PlayerHealth playerHealth);
     protected virtual void OnDifficultyChanged(float difficulty) { }
 }

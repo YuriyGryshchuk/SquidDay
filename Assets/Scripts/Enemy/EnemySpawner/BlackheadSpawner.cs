@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class BlackheadSpawner : EnemySpawner
+public class BlackheadSpawner : EnemySpawner<Bleackhead>
 {
     [SerializeField] private float _speed;
  
-    protected override void InitEnemy(Enemy enemy)
+    protected override void InitEnemy(Bleackhead enemy)
     {
-        Bleackhead bleackhead = enemy.GetComponent<Bleackhead>();
-        bleackhead.Init(_speed);
+        enemy.Init(_speed);
     }
 }
