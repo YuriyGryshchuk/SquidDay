@@ -1,22 +1,28 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int _health;
-    [SerializeField] private float _timeOfImmortality;
-
     private int _coins;
-
     private float _currentTimeImmortality;
+    private  PlayerConfig _playerConfig;
+    private int _health;
 
     public event Action Dead;
     public event Action<int> ChangedHealth;
     //public event UnityAction<int> ChangeCountCoins;
 
+    [Inject]
+    private void Conctruct(PlayerConfig playerConfig)
+    {
+        _playerConfig = playerConfig;
+    }
+
     private void Start()
     {
         _currentTimeImmortality = 0;
+        _health = _playerConfig.PlayerHealth;
     }
 
     private void Update()
@@ -26,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage()
     {
-        if (_currentTimeImmortality >= _timeOfImmortality)
+        if (_currentTimeImmortality >= _playerConfig.TimeOfImmortalityOnDamage)
         {
             _health -= 1;
             ChangedHealth?.Invoke(_health);

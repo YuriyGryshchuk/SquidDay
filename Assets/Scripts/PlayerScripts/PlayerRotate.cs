@@ -6,15 +6,15 @@ using Zenject;
 
 public class PlayerRotate : MonoBehaviour
 {
-    [SerializeField] private float _speedToRotate = 20;
-
     private InputButtonData _inputButtonData;
+    private PlayerConfig _playerConfig;
     private bool _isPressedLeft;
     private bool _isPressedRight;
 
     [Inject]
-    private void Conctruct(InputButtonData inputButtonData)
+    private void Conctruct(InputButtonData inputButtonData, PlayerConfig playerConfig)
     {
+        _playerConfig = playerConfig;
         _inputButtonData = inputButtonData;
     }
 
@@ -46,7 +46,8 @@ public class PlayerRotate : MonoBehaviour
 
     private void Update()
     {
-        float rotation = Input.GetAxis("Horizontal") * _speedToRotate;
+        float rotation = Input.GetAxis("Horizontal") * _playerConfig.SpeedToRotatePlayer;
+
         rotation *= Time.deltaTime;
         transform.Rotate(0, 0, -rotation);
 
@@ -59,7 +60,7 @@ public class PlayerRotate : MonoBehaviour
 
     private void Rotate(float direction)
     {
-        float rotation = direction * _speedToRotate;
+        float rotation = direction * _playerConfig.SpeedToRotatePlayer;
         rotation *= Time.deltaTime;
         transform.Rotate(0, 0, -rotation);
     }
