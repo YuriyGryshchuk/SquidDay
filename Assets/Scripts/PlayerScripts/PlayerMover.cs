@@ -6,21 +6,18 @@ using Zenject;
 
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private float _pushForce = 3f;
-    [SerializeField] private float _slowdown = 0.1f;
-    [SerializeField] private float _timeToMove = 1f;
-    [SerializeField] private GameObject _ink;
-
+    private InputButtonData _inputButtonData;
+    private PlayerConfig _playerConfig;
     private Vector2 _currentVector;
     private float _currentSpeed;
     private float _currentTime;
     private Animator _squidAnimator;
     private bool _isPressedPush;
-    private InputButtonData _inputButtonData;
 
     [Inject]
-    private void Conctruct(InputButtonData inputButtonData)
+    private void Conctruct(InputButtonData inputButtonData, PlayerConfig playerConfig)
     {
+        _playerConfig = playerConfig;
         _inputButtonData = inputButtonData;
     }
 
@@ -70,7 +67,7 @@ public class PlayerMover : MonoBehaviour
     }
     private void PushPlayer()
     {
-        if (_currentTime >= _timeToMove)
+        if (_currentTime >= _playerConfig.TimeWithoutMove)
         {
             if (Input.GetKeyDown(KeyCode.Space) || _isPressedPush)
             {
@@ -84,7 +81,7 @@ public class PlayerMover : MonoBehaviour
     {
         transform.Translate(_currentVector * _currentSpeed * Time.deltaTime, Space.World);
         LimitPosition();
-        _currentSpeed -= _slowdown;
+        _currentSpeed -= _playerConfig.SlowdownVelosity;
         if (_currentSpeed <= 0)
             _currentSpeed = 0;
     }
@@ -92,8 +89,8 @@ public class PlayerMover : MonoBehaviour
     private void SetPushStats()
     {
         _currentVector = transform.up;
-        _currentSpeed = _pushForce;
-        Instantiate(_ink, transform.position, transform.localRotation);
+        _currentSpeed = _playerConfig.PlayerPushForce;
+        Instantiate(_playerConfig.PlayerProjectile, transform.position, transform.localRotation);
         _squidAnimator.SetTrigger("Forse");
         _currentTime = 0;
     }

@@ -317,7 +317,7 @@ Transform:
   - {fileID: 231755396}
   - {fileID: 1572530701}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &86923204
 GameObject:
@@ -2192,7 +2192,7 @@ Transform:
   m_Children:
   - {fileID: 1631812393}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &495040184
 GameObject:
@@ -3825,50 +3825,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958006328}
   m_CullTransparentMesh: 1
---- !u!1 &1020008325
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1020008327}
-  - component: {fileID: 1020008326}
-  m_Layer: 0
-  m_Name: Shop
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1020008326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020008325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28035948110681c4393f90053b44f5ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1020008327
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020008325}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.21131025, y: -0.8415625, z: -11.704144}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1036719187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4407,7 +4363,7 @@ MonoBehaviour:
   _playerHealth: 3
   _timeOfImmortalityOnDamage: 1
   _playerPushForce: 5
-  _slowdownVelosity: 0.1
+  _slowdownVelosity: 0.01
   _timeWithoutMove: 1
   _playerProjectile: {fileID: 666640573805771844, guid: 8df9312c706117e44900159333f958e0, type: 3}
   _speedToRotatePlayer: 200
@@ -7866,7 +7822,7 @@ RectTransform:
   - {fileID: 1766217373}
   - {fileID: 1835811981}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7904,7 +7860,6 @@ MonoBehaviour:
   - {fileID: 1972741445}
   - {fileID: 1528108541}
   - {fileID: 1165156975}
-  _squid: {fileID: 0}
 --- !u!1 &1824963782
 GameObject:
   m_ObjectHideFlags: 0
