@@ -5,14 +5,14 @@ public abstract class EnemySpawner<IObject> : SpawnerBase<IObject> where IObject
     [SerializeField]
     private PrearrangedSpawnPositionDispenser _spawnPositions;
     [SerializeField]
-    private TimerSpawnSolver _timerSpawnSolver;
+    private TimerSpawnSolver<IObject> _timerSpawnSolver;
 
     protected override ISpawnPositionDispenser InitSpawnPositionDispeser()
     {
         return _spawnPositions;
     }
 
-    protected override ISpawnSolver InitSpawnSolver()
+    protected override ISpawnSolver<IObject> InitSpawnSolver()
     {
         return _timerSpawnSolver;
     }
@@ -24,7 +24,7 @@ public abstract class EnemySpawner<IObject> : SpawnerBase<IObject> where IObject
 
     protected override void OnDifficultyChanged(float difficulty)
     {
-        _timerSpawnSolver.SetSpawnDelay(_timerSpawnSolver.SpawnDelayInSeconds / (difficulty * _difficultyMultiplier + 1));
+        _timerSpawnSolver.SetSpawnDelay(_timerSpawnSolver.InitialSpawnDelay / (difficulty * DifficultyMultiplier + 1));
     }
 
     protected abstract void InitEnemy(IObject enemy);

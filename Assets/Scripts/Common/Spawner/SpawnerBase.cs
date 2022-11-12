@@ -1,35 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public abstract class SpawnerBase<TObject> : MonoBehaviour, ISpawnMethod where TObject : Component
+public abstract class SpawnerBase<TObject> : MonoBehaviour where TObject : Component
 {
-    [SerializeField] protected TObject _spawnObject;
-    [SerializeField] protected int _startPullSize = 10;
-    [SerializeField] protected float _difficultyMultiplier = 0.03f;
+    [SerializeField] private float difficultyMultiplier = 0.03f;
+    [SerializeField] private Factory<TObject> _factory;
 
-    protected List<TObject> _pullList = new List<TObject>();
-    protected DifficultyChanger _difficultyChanger;
-    protected ISpawnPositionDispenser _spawnPositionDispenser;
-    protected ISpawnSolver _spawnSolver;
-
-    private DiContainer _container;
+    private DifficultyChanger _difficultyChanger;
+    private ISpawnSolver<TObject> _spawnSolver;
+    private ISpawnPositionDispenser _spawnPositionDispenser;
+    private DiContainer _diContainer;
+    protected float DifficultyMultiplier => difficultyMultiplier;
 
     [Inject]
-    private void Construct(DiContainer diContainer, DifficultyChanger difficultyChanger)
+    private void Construct(DifficultyChanger difficultyChanger, DiContainer diContainer)
     {
-        _container = diContainer;
         _difficultyChanger = difficultyChanger;
+        _diContainer = diContainer;
     }
 
     protected virtual void Start()
     {
-        CreatePull();
         _difficultyChanger.DifficultyChanged += OnDifficultyChanged;
         _spawnPositionDispenser = InitSpawnPositionDispeser();
+        _factory.Init(_spawnPositionDispenser, _diContainer);
+        _factory.OnSpawn += OnObjectSpawned;
         _spawnSolver = InitSpawnSolver();
-        _spawnSolver.Init(this);
+        _spawnSolver.Init(_factory);
         _spawnSolver.Start();
     }
 
@@ -39,49 +36,7 @@ public abstract class SpawnerBase<TObject> : MonoBehaviour, ISpawnMethod where T
     }
 
     protected abstract ISpawnPositionDispenser InitSpawnPositionDispeser();
-    protected abstract ISpawnSolver InitSpawnSolver();
+    protected abstract ISpawnSolver<TObject> InitSpawnSolver();
     protected virtual void OnDifficultyChanged(float difficulty) { }
     protected virtual void OnObjectSpawned(TObject obj) { }
-
-    private void CreatePull()
-    {
-        for (int i = 0; i < _startPullSize; i++)
-        {
-            TObject obj = _container.InstantiatePrefabForComponent<TObject>(_spawnObject.gameObject);
-            _pullList.Add(obj);
-        }
-        DisableAllObjects();
-    }
-
-    private void DisableAllObjects()
-    {
-        foreach (var obj in _pullList)
-        {
-            obj.gameObject.SetActive(false);
-        }
-    }
-
-    private TObject SpawnAtPosition(Vector3 spawnPosition)
-    {
-        foreach (var obj in _pullList)
-        {
-            if (!obj.gameObject.activeSelf)
-            {
-                obj.gameObject.SetActive(true);
-                obj.transform.position = spawnPosition;
-                return obj;
-            }
-        }
-        return null;
-    }
-
-    public void Spawn()
-    {
-        Vector3 newPosition = _spawnPositionDispenser.GetNextPosition();
-        TObject obj = SpawnAtPosition(newPosition);
-        if (obj != null)
-        {
-            OnObjectSpawned(obj);
-        }
-    }
 }

@@ -285,9 +285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819d9d7bf6a63c34481fda83ed01c29f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnObject: {fileID: 5744468589337695266, guid: e94e8ff1f4912884387ac2d871a49048, type: 3}
-  _startPullSize: 10
-  _difficultyMultiplier: 0.03
+  difficultyMultiplier: 0.03
+  _factory:
+    _spawnObject: {fileID: 5744468589337695266, guid: e94e8ff1f4912884387ac2d871a49048, type: 3}
+    _startPullSize: 2
   _spawnPositions:
     _spawnPositions:
     - {fileID: 180722339}
@@ -297,7 +298,7 @@ MonoBehaviour:
     - {fileID: 231755396}
     - {fileID: 1572530701}
   _timerSpawnSolver:
-    _spawnDelayInSeconds: 5
+    _initialSpawnDelay: 5
 --- !u!4 &79545697
 Transform:
   m_ObjectHideFlags: 0
@@ -7912,9 +7913,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6400e078cb4bd34f8b09eb81bcf0ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnObject: {fileID: 4831209003127984146, guid: 295174d915d8ea741b9bb9e53702b2ea, type: 3}
-  _startPullSize: 2
-  _difficultyMultiplier: 0.03
+  difficultyMultiplier: 0.03
+  _factory:
+    _spawnObject: {fileID: 4831209003127984146, guid: 295174d915d8ea741b9bb9e53702b2ea, type: 3}
+    _startPullSize: 5
   _spawnPositions:
     _spawnPositions:
     - {fileID: 1227020762}
@@ -7926,7 +7928,7 @@ MonoBehaviour:
     - {fileID: 428266698}
     - {fileID: 1595552368}
   _timerSpawnSolver:
-    _spawnDelayInSeconds: 5
+    _initialSpawnDelay: 5
   _speed: 2
 --- !u!1 &1835811980
 GameObject:
@@ -8772,9 +8774,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0ea4f3294cd3c47867f4b392678a1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnObject: {fileID: 6516151966514141836, guid: 315c6d5d8df459b4bb2b670cde78f8aa, type: 3}
-  _startPullSize: 10
-  _difficultyMultiplier: 0.03
+  difficultyMultiplier: 0.03
+  _factory:
+    _spawnObject: {fileID: 6516151966514141836, guid: 315c6d5d8df459b4bb2b670cde78f8aa, type: 3}
+    _startPullSize: 5
   _spawnPositions:
     _spawnPositions:
     - {fileID: 613038495}
@@ -8784,7 +8787,7 @@ MonoBehaviour:
     - {fileID: 1515615467}
     - {fileID: 1097521874}
   _timerSpawnSolver:
-    _spawnDelayInSeconds: 5
+    _initialSpawnDelay: 5
   _speed: 2
 --- !u!1 &2050269944
 GameObject:
@@ -9373,9 +9376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfaadb40b0df8f489859eeb7b638154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnObject: {fileID: 6020380204335284155, guid: 31757a0d473362d47abef4b393e0d516, type: 3}
-  _startPullSize: 10
-  _difficultyMultiplier: 0.03
+  difficultyMultiplier: 0.03
+  _factory:
+    _spawnObject: {fileID: 6020380204335284155, guid: 31757a0d473362d47abef4b393e0d516, type: 3}
+    _startPullSize: 3
   _spawnPositions:
     _spawnPositions:
     - {fileID: 1681942532}
@@ -9385,7 +9389,7 @@ MonoBehaviour:
     - {fileID: 456918665}
     - {fileID: 1788688041}
   _timerSpawnSolver:
-    _spawnDelayInSeconds: 5
+    _initialSpawnDelay: 5
 --- !u!1 &2134812369
 GameObject:
   m_ObjectHideFlags: 0
